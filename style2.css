@@ -1,0 +1,69 @@
+body {
+	background-color: tan;	
+}
+
+#flex-container8 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 400px;
+    /* border: 1px black solid; */
+    margin: 0 auto;
+	background-color: grey;
+	color: white;
+}
+
+.flex-item8 {
+    width: auto;
+    height: 300px;
+	/* NOTE:properties below must occur in correct order */
+    border: white;
+	border-style: double;
+	border-width: thick;
+    background-color: grey;
+	text-align: center;
+	padding-top: 10px;
+}
+
+#flex-container8 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 400px;
+    /* border: 1px black solid; */
+    margin: 0 auto;
+	background-color: grey;
+	color: white;
+}
+
+.flex-item9 {
+    width: 400px;
+    height: 30px;
+	/* NOTE:properties below must occur in correct order */
+    border: white;
+	border-style: double;
+	border-width: thick;
+	
+	
+    background-color: grey;
+	text-align: center;
+	padding-top: 10px;
+}
+
+#flex-container9 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 400px;
+    /* border: 1px black solid; */
+    margin: 0 auto;
+	background-color: grey;
+	color: white;
+}
+
+.inputC   {
+	padding-top: 4px;
+	font-size: 13px;
+	
+}
+

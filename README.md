@@ -13,5 +13,5 @@ The app is build using HTML, CSS, and vanilla JAVASCRIPT. There are plans to use
 Currently, the app runs entirely on the client-side, but eventually, will be updated from a server.
 
 
-
+(https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46     USE THIS LINK AS REFENCE FOR ADDING ONTO THIS README)
 (this README was edited with https://stackedit.io/editor#)
