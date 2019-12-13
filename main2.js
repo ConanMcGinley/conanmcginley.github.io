@@ -5,13 +5,13 @@
 
 const PHRASES = [
 [["How are you?"],["Come stai?"],["CO-may STY"]],
-[["How are they?"],["Come state?"],["CO-may STAH-tay"]],
-[["How were they ?"],["Come sono stati?"],["CO-may SO-no STY"]],
+[["How are they?"],["Come state?"],["CO-may STY"]],
+[["How are they not?"],["Come state?"],["CO-may STY"]],
 ];
 
 /* [["How are you?"],["Come stai?"],["CO-may STY"],],
 [["How are they?"],["Come state?"],["CO-may STY"],],
-[["How are they?"],["Come state?"],["CO-may STY"],],
+[["How are they not?"],["Come state?"],["CO-may STY"],],
 ];
  [["How are you today?"],["Come stai oggi"],["CO-may STY oh-JEE"],]
 
@@ -81,10 +81,7 @@ var wrongAnswers = []
 var wrongCount = 0
 //store userName
 var userName = ""
-
 var rightCount = 0
-var score = 0
-
 
 //********************************************************
 //player Constructor
@@ -94,7 +91,7 @@ function Player(name,lastLearnLevel, lastTestLevel, lastScoreLevel,wrongQuestion
 	this.lastTestLevel;
 	this.lastScoreLevel,
 	this.wrongQuestionsArr
-
+}
 //********************************************************
 
 //event listener for userName
@@ -208,32 +205,105 @@ var row4 = document.getElementsByClassName('flex-item3')
 	
 //add event listener to second card. records response
 // and determines whether answer is correct or not	
-	row4[1].addEventListener('click', function(){			
-		var wrong1 = row4[1].innerText
-		currentScore = (100 *((count+1-wrongCount)/count)).toFixed(0)
-		console.log(eval(currentScore))
-		//updates score box
-		var temp1 = document.getElementsByClassName('flex-item')
-		temp1[2].textContent = "Score = " + currentScore 
-			//records wrong answers
-			if (wrong1 !== correctAnswer) {
-				wrongAnswers.push(wrong1)
-				console.log(wrongAnswers)
-				wrongCount ++
-				console.log(wrongCount)
-				currentScore = (100 *((count+1-wrongCount)/count)).toFixed(0)
-				console.log(eval(currentScore))
-				 var temp1 = document.getElementsByClassName('flex-item')
-				 temp1[2].textContent = "Score = " + currentScore 
+	row4[1].addEventListener('click', function(){				
+			var answer = row4[1].innerText;	
+			if (answer == correctAnswer) {
+				rightCount++;
+				console.log(rightCount)				
+				score = (100 * (rightCount/(rightCount + wrongCount))).toFixed(0);
+				console.log(score)
+			}else if (answer !== correctAnswer) {
+				wrongCount++;
+				wrongAnswers.push(answer);
+				score = (100 * (rightCount/(rightCount + wrongCount))).toFixed(0);
+				console.log(score)
 			}
+			var temp1 = document.getElementsByClassName('flex-item')
+			temp1[2].textContent = "Score = " + score 
+			console.log(score)
+			console.log(rightCount)
+			console.log(wrongCount)
 		});
+		
+		
+		row4[2].addEventListener('click', function(){				
+			var answer = row4[1].innerText;	
+			if (answer == correctAnswer) {
+				rightCount++;
+				console.log(rightCount)				
+				score = (100 * (rightCount/(rightCount + wrongCount))).toFixed(0);
+				console.log(score)
+			}else if (answer !== correctAnswer) {
+				wrongCount++;
+				wrongAnswers.push(answer);
+				score = (100 * (rightCount/(rightCount + wrongCount))).toFixed(0);
+				console.log(score)
+			}
+			var temp1 = document.getElementsByClassName('flex-item')
+			temp1[2].textContent = "Score = " + score 
+			console.log(score)
+			console.log(rightCount)
+			console.log(wrongCount)
+		});
+		
+		function startUp() {
+			
+	    if(learn === true) {
+		testing = false
+		row4 = document.getElementsByClassName('flex-item3')
+		row4[0].style.backgroundColor = 'white'
+		row4[1].style.backgroundColor = 'black'
+		row4[2].style.backgroundColor = 'black'
+		row4[0].textContent = PHRASES[count][0][0];
+		row4[1].textContent = PHRASES[count][1][0];
+		row4[2].textContent = PHRASES[count][2][0];
+		setTimeout(answers,1000)
+			function answers()  {
+				row4[1].style.backgroundColor = 'white';
+				row4[2].style.backgroundColor = 'white';
+				
+			}
+			console.log(PHRASES[count][0][0]);
+			console.log(PHRASES[count][1][0]);
+			count++;
+			console.log(count)
+		}	 
+		
+			
+			
 	
 	
-	
-	
-	
-	
-	
-	
-	
-
+	 if(testing === true) {
+		learn = false
+		row4 = document.getElementsByClassName('flex-item3')
+		row4[0].style.backgroundColor = 'white'
+		row4[1].style.backgroundColor = 'black'
+		row4[2].style.backgroundColor = 'black'
+		var rand = (Math.ceil(Math.random() * 2));
+		console.log(rand)
+		if (rand == 1) {
+			var other = 2;
+			console.log(other)
+		}else{
+			var other = 1;
+			console.log(other)
+		}
+		
+		
+		console.log(rand)
+		row4[0].textContent = TEST_NOUNS[count][0][0];
+		row4[1].textContent = TEST_NOUNS[count][rand][0];
+		row4[2].textContent = TEST_NOUNS[count][other][0];
+		correctAnswer = TEST_NOUNS[count][1][0];
+		setTimeout(answers,1000)
+			function answers()  {
+				row4[1].style.backgroundColor = 'white';
+				row4[2].style.backgroundColor = 'white';
+				
+			}
+			console.log(TEST_NOUNS[count][1][0]);
+			console.log(TEST_NOUNS[count][2][0]);
+			count++;
+			console.log(count)
+		}	 
+	}
