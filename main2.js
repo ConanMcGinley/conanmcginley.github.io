@@ -1,7 +1,7 @@
 // DataInitialization
 //Starting with 2 arrays
 //first array, PHRASES, is used for learning mode
-//second array, TEST_NOUNS is used for testing
+//second array, TEST_NOUNS is used for testing.
 
 const PHRASES = [
 [["How are you?"],["Come stai?"],["CO-may STY"]],
@@ -224,7 +224,9 @@ var row4 = document.getElementsByClassName('flex-item3')
 			console.log(rightCount)
 			console.log(wrongCount)
 		});
-		
+	
+//add event listener to third card. records response
+// and determines whether answer is correct or not			
 		
 		row4[2].addEventListener('click', function(){				
 			var answer = row4[1].innerText;	
@@ -246,6 +248,9 @@ var row4 = document.getElementsByClassName('flex-item3')
 			console.log(wrongCount)
 		});
 		
+
+
+//this function controls the display of questions and answers for both testing and learning		
 		function startUp() {
 			
 	    if(learn === true) {
